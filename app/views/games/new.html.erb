@@ -1,0 +1,21 @@
+<h1>Games#new</h1>
+<p>Find me in app/views/games/new.html.erb</p>
+<ul class="list-inline">
+<% @letters.each do |letter| %>
+    <li class="list-inline-item"><%= letter %></li>
+<% end %>
+</ul>
+
+
+<form action="/score" method = "post">
+  <div class="field">
+    <div class="input-group mb-3">
+      <input type="text" name="word" required class="form-control" placeholder="Your word" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit">Let's go!</button>
+      </div>
+    </div>
+  </div>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+</form>
